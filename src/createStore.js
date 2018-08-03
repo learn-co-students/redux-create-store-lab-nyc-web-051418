@@ -1,5 +1,22 @@
 export default function createStore(reducer) {
-  // add your code here
+  let state;
+  const dispatch = (action) => {
+    state = reducer(state, action);
+    render();
+  }
+
+  const getState = () => {
+    return state;
+  }
+
+  dispatch({
+    type: 'testing'
+  })
+
+  return {
+    dispatch,
+    getState,
+  }
 }
 
 function render() {
